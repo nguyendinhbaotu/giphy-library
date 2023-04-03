@@ -6,16 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GiphyService } from './services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatCardModule } from '@angular/material/card';
+import { SearchComponent } from './components/search/search.component';
+import { HelloComponent } from './components/hello/hello.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    HelloComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
   ],
   providers: [
     GiphyService

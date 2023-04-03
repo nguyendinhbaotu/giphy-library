@@ -11,8 +11,8 @@ export class AppComponent {
 
 
   constructor(private giphyService: GiphyService) {
-    this.giphyService.search('dogs').subscribe((res) => {
-      alert(res);
-    })
+    // this.giphyService.search('dogs').subscribe((res) => {
+    //   alert(res);
+    // })
   }
 }

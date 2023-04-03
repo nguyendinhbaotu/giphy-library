@@ -1,0 +1,7 @@
+<p>search works!</p>
+<!-- {{ searchRes?.data | json }} -->
+<ng-template ngFor let-item [ngForOf]="searchRes?.data">
+    <mat-card>
+        <mat-card-content><img [src]="item?.images?.fixed_height_downsampled?.url"/></mat-card-content>
+    </mat-card>
+</ng-template>
