@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GiphyService } from './services';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +7,4 @@ import { GiphyService } from './services';
 })
 export class AppComponent {
   title = 'giphy-library';
-
-
-  constructor(private giphyService: GiphyService) {
-    // this.giphyService.search('dogs').subscribe((res) => {
-    //   alert(res);
-    // })
-  }
 }

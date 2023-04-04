@@ -7,8 +7,16 @@ import { AppComponent } from './app.component';
 import { GiphyService } from './services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+
 import { SearchComponent } from './components/search/search.component';
 import { HelloComponent } from './components/hello/hello.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +29,12 @@ import { HelloComponent } from './components/hello/hello.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatListModule,
+    MatButtonModule
   ],
   providers: [
     GiphyService

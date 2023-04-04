@@ -1,1 +1,1 @@
-export * from './giphy-service.service';
+export * from './giphy.service';

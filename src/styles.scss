@@ -1,4 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-card {
+    box-shadow: none !important;
+    margin-bottom: 10px;
+    background: transparent !important;
+}
+
+.mat-mdc-card-content {
+    padding: 0px !important;
+    // display: flex !important;
+    // flex-direction: column;
+
+    img {
+        border-radius: 10px;
+    }
+}
+
+.mat-mdc-text-field-wrapper {
+    border-radius: 10px !important;
+}
+

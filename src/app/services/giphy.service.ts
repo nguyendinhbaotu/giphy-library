@@ -13,8 +13,8 @@ export class GiphyService {
     private client: HttpClient
   ) { }
 
-  search<SearchResponse>(q: string, limit: number = 25, offset: number = 0, rating: string = 'g', lang: string = 'en') {
-    return this.client.get<SearchResponse>('https://api.giphy.com/v1/gifs/search', {
+  search<T>(q: string, limit: string = '25', offset: number = 0, rating: string = 'g', lang: string = 'en') {
+    return this.client.get<T>('https://api.giphy.com/v1/gifs/search', {
       params: {
         api_key: '5wTVQqqo8bo7gkKAa5qkSZYyFvSWjwJt',
         q,

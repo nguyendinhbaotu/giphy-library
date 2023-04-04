@@ -1,0 +1,15 @@
+.app {
+    display: flex;
+    background: #e9e9e9;
+
+    .left-nav {
+        width: 150px;
+        padding: 16px;
+        background: white;
+    }
+
+    .content {
+        flex-grow: 1;
+        padding: 16px;
+    }
+}

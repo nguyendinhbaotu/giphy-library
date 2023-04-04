@@ -1,7 +1,7 @@
 export interface SearchResponse {
-    data: Item[]
-    pagination: Pagination
-    meta: Meta
+    data?: Item[]
+    pagination?: Pagination
+    meta?: Meta
   }
   
   export interface Item {
