@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { SearchComponent } from './components/search/search.component';
 import { HelloComponent } from './components/hello/hello.component';
@@ -34,7 +35,8 @@ import { HelloComponent } from './components/hello/hello.component';
     MatIconModule,
     MatSelectModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
   ],
   providers: [
     GiphyService

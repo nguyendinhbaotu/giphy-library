@@ -18,11 +18,15 @@ body {
 
 .mat-mdc-card-content {
     padding: 0px !important;
-    // display: flex !important;
-    // flex-direction: column;
 
     img {
         border-radius: 10px;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.51);
+        // transition: all 0.2s ease-in-out;
+        // &:hover {
+        //     width: 110%;
+        //     height: 110%;
+        // }
     }
 }
 
@@ -30,3 +34,7 @@ body {
     border-radius: 10px !important;
 }
 
+
+.mat-toolbar {
+    background: white !important;
+}

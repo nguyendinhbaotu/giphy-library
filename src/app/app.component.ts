@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'giphy-library';
+  title = 'Giphy';
+  limit = '25';
+  rating = 'g';
 }
