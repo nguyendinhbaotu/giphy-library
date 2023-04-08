@@ -1,0 +1,116 @@
+.search-content {
+    display: flex;
+    gap: 16px;
+
+    .search-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.gif-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin-bottom: 8px;
+
+    &:hover {
+        .gif-user {
+            opacity: 1;
+        }
+        .gif-actions {
+            opacity: 1;
+        }
+    }
+
+    .gif {
+        width: 100%;
+        height: auto;
+        transition: all .3s ease-in-out;
+    }
+
+    img.ng-lazyloaded {
+        animation: fadein 1s;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    // @keyframes blur {
+    //     from { backdrop-filter: blur(4px) opacity(0); }
+    //     to   { backdrop-filter: blur(4px) opacity(1); }
+    // }
+}
+
+.gif-info {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: interface, helvetica, arial;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    // transition: opacity 150ms ease-in 0s;
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .gif-user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .gif-user-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+        }
+    
+        .gif-user-name {
+            margin-left: 8px;
+            color: white;
+        }
+    }
+}
+
+.gif-actions {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: interface, helvetica, arial;
+    position: absolute;
+    transition: opacity 150ms ease-in 0s;
+    color: white;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(12px);
+    top: 0px;
+    left: 0px;
+    border-radius: 10px;
+
+    .gif-action {
+        display: flex;
+        flex-direction: column;
+
+        // .gif-action-icon {
+        //     padding: 0px 12px;
+        //     height: auto;
+        // }
+    
+        // .gif-action-count {
+        //     padding: 0px 12px;
+        //     height: auto;
+        //     margin-bottom: 8px;
+        // }
+    }
+}

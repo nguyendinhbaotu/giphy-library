@@ -1,28 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { SearchResponse } from '../models';
+import { GiphyRepo } from '../repos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GiphyService {
 
-  apiKey = '5wTVQqqo8bo7gkKAa5qkSZYyFvSWjwJt';
+  q = 'dogs';
+  limit = '25';
+  offset = 0;
+  rating = 'g';
+  lang = 'en';
 
   constructor(
-    private client: HttpClient
+    private giphyRepo: GiphyRepo
   ) { }
 
-  search<T>(q: string, limit: string = '25', offset: number = 0, rating: string = 'g', lang: string = 'en') {
-    return this.client.get<T>('https://api.giphy.com/v1/gifs/search', {
-      params: {
-        api_key: '5wTVQqqo8bo7gkKAa5qkSZYyFvSWjwJt',
-        q,
-        limit,
-        offset,
-        rating,
-        lang
-      }
-    })
+  search() {
+    return this.giphyRepo.search(this.q, this.limit, this.offset, this.rating, this.lang);
+  }
+
+  trending() {
+    return this.giphyRepo.trending(this.limit, this.rating);
   }
 }

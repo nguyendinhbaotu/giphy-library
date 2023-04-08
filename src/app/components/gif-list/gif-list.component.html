@@ -1,0 +1,62 @@
+<div class="search-content">
+    <div class="search-col" *ngFor="let col of columns; index as i;">
+        <ng-template ngFor let-item [ngForOf]="col">
+            <mat-card>
+                <mat-card-content>
+                    <div class="gif-details">
+                        <!-- <ngx-skeleton-loader
+                            *ngIf="!contentLoaded"
+                            [theme]="theme(item?.images?.fixed_width_downsampled)"
+                        >
+                        </ngx-skeleton-loader> -->
+                        <!-- <div [defaultImage]="item?.images?.fixed_width_downsampled?.url" [lazyLoad]="item?.images?.fixed_width_downsampled?.url"></div> -->
+                        <img class="gif" [defaultImage]="'../assets/logo.png'" [lazyLoad]="item?.images?.fixed_width_downsampled?.url"/>
+                        <div class="gif-info">
+                            <div class="gif-user">
+                                <img defer="" [src]="item?.user?.avatar_url || '../assets/logo.png'" class="gif-user-icon">
+                                <span class="gif-user-name">{{ item?.user?.display_name || 'Giphy' }}</span>
+                            </div>
+                            <div class="gif-title">
+                                <span>{{ item?.title }}</span>
+                            </div>
+                        </div>
+                        <div class="gif-actions">
+                            <div class="gif-action">
+                                <button class="gif-action-icon" mat-icon-button color="basic">
+                                    <mat-icon>favorite</mat-icon>
+                                </button>
+                                <!-- <span class="gif-action-count">100</span> -->
+                            </div>
+
+                            <div class="gif-action">
+                                <button class="gif-action" mat-icon-button color="basic">
+                                    <mat-icon>chat</mat-icon>
+                                </button>
+                                <!-- <span class="gif-action-count">100</span> -->
+                            </div>
+                            
+                            <div class="gif-action">
+                                <button class="gif-action" mat-icon-button color="basic">
+                                    <mat-icon>bookmark</mat-icon>
+                                </button>
+                                <!-- <span class="gif-action-count">100</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="gif-user-2">
+                        <button mat-icon-button color="basic" aria-label="Example icon button with a heart icon">
+                            <mat-icon>favorite</mat-icon>
+                          </button>
+                    </div> -->
+                    <!-- <div class="gif-user-2">
+                        <img [src]="item?.user?.avatar_url || '../assets/logo.png'" class="gif-user-icon">
+                        <span class="gif-user-name">{{ item?.user?.display_name || 'Giphy' }}</span>
+                        <button class="gif-favorite" mat-icon-button color="basic" aria-label="Example icon button with a heart icon">
+                            <mat-icon>favorite</mat-icon>
+                        </button>
+                    </div> -->
+                </mat-card-content>
+            </mat-card>
+        </ng-template>
+    </div>
+</div>

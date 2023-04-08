@@ -4,13 +4,13 @@ import { Meta } from './meta.model';
 import { Pagination } from './pagination.model';
 import { User } from './user.model';
 
-export interface SearchResponse {
-  data?: Item[]
-  pagination?: Pagination
-  meta?: Meta
+export interface TrendingResponse {
+  data: TrendingItem[]
+  pagination: Pagination
+  meta: Meta
 }
 
-export interface Item {
+export interface TrendingItem {
   type: string
   id: string
   url: string
@@ -33,4 +33,3 @@ export interface Item {
   analytics_response_payload: string
   analytics: Analytics
 }
-
