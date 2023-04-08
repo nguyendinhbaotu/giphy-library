@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'trending', component: TrendingComponent },
   // { path: 'second-component', component: SecondComponent },
-  { path: '', redirectTo: '/hello', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '', redirectTo: '/trending', pathMatch: 'full' }, // redirect to `first-component`
   // { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 
