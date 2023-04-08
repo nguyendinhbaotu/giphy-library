@@ -1,3 +1,15 @@
+.sort {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 16px;
+
+    span {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
 .search-content {
     display: flex;
     gap: 16px;

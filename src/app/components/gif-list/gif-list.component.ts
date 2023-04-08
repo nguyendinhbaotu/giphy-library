@@ -18,11 +18,12 @@ function* chunks(array: any[], n: number) {
 })
 export class GifListComponent implements OnChanges, AfterViewInit {
   @Input() searchResponse: SearchResponse = {};
-  // searchRes: SearchResponse = {};
+  items: Item[] = [];
   columns: any[] = [];
   contentLoaded = false;
   viewInit = false;
   collection: any = {};
+  sort = 'desc';
 
   constructor(
     public zone: NgZone,
@@ -39,6 +40,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   ngOnChanges(changes: SimpleChanges): void {
     const { searchResponse } = changes;
     if (searchResponse) {
+      this.sortItems();
       if (this.viewInit) {
         this.render();
       }
@@ -50,16 +52,25 @@ export class GifListComponent implements OnChanges, AfterViewInit {
     this.collection = this.giphyService.collection();
     this.render();
   }
-  
+
+  sortItems() {
+    const items = this.searchResponse.data?.sort((a: Item, b: Item) => {
+      if (new Date(a.import_datetime).getTime() > new Date(b.import_datetime).getTime()) {
+        return 1;
+      }
+      return -1;
+    });
+    this.items = items || [];
+  }
 
   render() {
     const width = window.innerWidth;
-      const noOfCol = width / 210 - 1;
-      this.split(this.searchResponse.data || [], noOfCol);
-      
-      setTimeout(() => {
-        this.zone.run(() => this.contentLoaded = true);
-      }, 4000);
+    const noOfCol = width / 210 - 1;
+    this.split(this.items, noOfCol);
+
+    setTimeout(() => {
+      this.zone.run(() => this.contentLoaded = true);
+    }, 4000);
   }
 
   split(items: Item[], noOfCol: number) {
@@ -84,5 +95,10 @@ export class GifListComponent implements OnChanges, AfterViewInit {
 
   toggleBookmark(image: any) {
     this.collection = this.giphyService.toggleBookmark(image);
+  }
+
+  changeSort() {
+    this.sortItems();
+    this.render();
   }
 }

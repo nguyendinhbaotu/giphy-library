@@ -1,3 +1,10 @@
+<div class="sort">
+    <mat-button-toggle-group name="sort" [(ngModel)]="sort" (change)="changeSort()">
+        <mat-button-toggle value="desc">Newest</mat-button-toggle>
+        <mat-button-toggle value="asc">Oldest</mat-button-toggle>
+    </mat-button-toggle-group>
+    <span>Sort:</span>
+</div>
 <div class="search-content">
     <div class="search-col" *ngFor="let col of columns; index as i;">
         <ng-template ngFor let-item [ngForOf]="col">
@@ -36,7 +43,7 @@
                             </div>
                             
                             <div class="gif-action">
-                                <button class="gif-action" mat-icon-button [color]="!!collection[item.id] ? 'warn' : 'basic'" (click)="toggleBookmark(item)">
+                                <button class="gif-action" mat-icon-button [color]="!!collection[item.id] ? 'accent' : 'basic'" (click)="toggleBookmark(item)">
                                     <mat-icon>bookmark</mat-icon>
                                 </button>
                                 <!-- <span class="gif-action-count">100</span> -->

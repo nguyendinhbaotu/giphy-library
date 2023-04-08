@@ -8,11 +8,23 @@ import { GiphyService } from 'src/app/services';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
+  q = 'dogs';
+  limit = '25';
+  offset = 0;
+  rating = 'g';
+  lang = 'en';
   searchResponse: SearchResponse = {};
   columns: any[] = [];
 
   constructor(public giphyService: GiphyService) {
-    this.giphyService.search().subscribe((res: SearchResponse) => {
+    this.search();
+    // this.giphyService.search(this.q, this.limit, this.offset, this.rating, this.lang).subscribe((res: SearchResponse) => {
+    //   this.searchResponse = res;
+    // })
+  }
+
+  search() {
+    this.giphyService.search(this.q, this.limit, this.offset, this.rating, this.lang).subscribe((res: SearchResponse) => {
       this.searchResponse = res;
     })
   }

@@ -15,8 +15,12 @@
 }
 
 .nav-title {
-    margin-left: 8px;
+    margin-left: 16px;
     // margin-right: 16px;
+}
+
+.nav-button {
+    margin-left: 16px;
 }
 
 mat-toolbar {
@@ -37,7 +41,6 @@ mat-toolbar {
     }
 
     .search-filter-field {
-        width: 125px;
         padding-right: 16px;
     }
 }

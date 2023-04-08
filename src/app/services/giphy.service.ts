@@ -8,28 +8,19 @@ export const GIPHY_FAVORTIE_COLLECTION = 'giphy-favorite-collection';
 })
 export class GiphyService {
 
-  q = 'dogs';
-  limit = '25';
-  offset = 0;
-  rating = 'g';
-  lang = 'en';
-
-  
-
   constructor(
     private giphyRepo: GiphyRepo
   ) { }
 
-  search() {
-    return this.giphyRepo.search(this.q, this.limit, this.offset, this.rating, this.lang);
+  search(q: string, limit: string = '25', offset: number = 0, rating: string = 'g', lang: string = 'en') {
+    return this.giphyRepo.search(q, limit, offset, rating, lang);
   }
 
-  trending() {
-    return this.giphyRepo.trending(this.limit, this.rating);
+  trending(limit: string = '25', rating: string = 'g') {
+    return this.giphyRepo.trending(limit, rating);
   }
 
   bookmark(image: any) {
-    debugger;
     const data = localStorage.getItem(GIPHY_FAVORTIE_COLLECTION);
     const collection = data ? JSON.parse(data) : {};
     collection[image.id] = image;
