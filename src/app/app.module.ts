@@ -17,9 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image'; // <-- include ScrollHooks
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
-import { TrendingComponent } from './pages';
+import { TrendingComponent, SearchComponent, FavoriteComponent } from './pages';
 import { GifListComponent } from './components';
-import { SearchComponent } from './components/search/search.component';
 import { HelloComponent } from './components/hello/hello.component';
 import { GiphyRepo } from './repos';
 import { GiphyService } from './services';
@@ -32,6 +31,7 @@ import { LazyImgDirective } from './directives';
     GifListComponent,
     SearchComponent,
     HelloComponent,
+    FavoriteComponent,
     LazyImgDirective
   ],
   imports: [

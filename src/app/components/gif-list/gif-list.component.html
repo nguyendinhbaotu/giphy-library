@@ -36,7 +36,7 @@
                             </div>
                             
                             <div class="gif-action">
-                                <button class="gif-action" mat-icon-button color="basic">
+                                <button class="gif-action" mat-icon-button [color]="!!collection[item.id] ? 'warn' : 'basic'" (click)="toggleBookmark(item)">
                                     <mat-icon>bookmark</mat-icon>
                                 </button>
                                 <!-- <span class="gif-action-count">100</span> -->

@@ -22,6 +22,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   columns: any[] = [];
   contentLoaded = false;
   viewInit = false;
+  collection: any = {};
 
   constructor(
     public zone: NgZone,
@@ -46,6 +47,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
 
   ngAfterViewInit() {
     this.viewInit = true;
+    this.collection = this.giphyService.collection();
     this.render();
   }
   
@@ -81,5 +83,9 @@ export class GifListComponent implements OnChanges, AfterViewInit {
       'height': image.height + 'px',
       'border-radius': '10px',
     }
+  }
+
+  toggleBookmark(image: any) {
+    this.collection = this.giphyService.toggleBookmark(image);
   }
 }
