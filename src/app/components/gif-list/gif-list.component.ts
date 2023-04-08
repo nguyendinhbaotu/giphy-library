@@ -51,7 +51,8 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   
 
   render() {
-    const width = window.innerWidth - 300;
+    debugger;
+    const width = window.innerWidth;
       const noOfCol = width / 210 - 1;
       this.split(this.searchResponse.data || [], noOfCol);
       
@@ -68,7 +69,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     debugger;
-    const width = event.target.innerWidth - 300;
+    const width = event.target.innerWidth;
     const noOfCol = width / 210 - 1;
     this.split(this.searchResponse.data || [], noOfCol);
   }
