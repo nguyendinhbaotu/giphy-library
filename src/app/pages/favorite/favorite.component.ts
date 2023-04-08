@@ -14,13 +14,9 @@ export class FavoriteComponent {
   columns: any[] = [];
 
   constructor(public giphyService: GiphyService) {
-    // const items = [];
     this.searchResponse.data = [];
-    // this.searchResponse.data  = [];
     const collection = this.giphyService.collection();
-    debugger;
     Object.keys(collection).forEach((key) => {
-      debugger;
       this.searchResponse?.data?.push(collection[key]);
     })
   }
