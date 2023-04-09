@@ -37,3 +37,15 @@ body {
 .mat-form-field-underline {
     display: none;
 }
+
+.cdk-overlay-container {
+    backdrop-filter: blur(8px);
+}
+
+img {
+    border-radius: 10px;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 10px !important;
+}

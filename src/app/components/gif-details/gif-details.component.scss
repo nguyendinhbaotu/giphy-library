@@ -1,0 +1,27 @@
+.gif-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.gif-details {
+    padding: 16px;
+
+    .gif-user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .gif-user-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+        }
+    
+        .gif-user-name {
+            margin-left: 8px;
+            // color: white;
+        }
+    }
+}

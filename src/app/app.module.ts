@@ -16,13 +16,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image'; // <-- include ScrollHooks
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
-import { TrendingComponent, SearchComponent, FavoriteComponent } from './pages';
-import { GifListComponent } from './components';
-import { HelloComponent } from './components/hello/hello.component';
+import { TrendingComponent, SearchComponent, FavoriteComponent, HomeComponent } from './pages';
+import { GifListComponent, GifDetailsComponent } from './components';
 import { GiphyRepo } from './repos';
 import { GiphyService } from './services';
 import { LazyImgDirective } from './directives';
@@ -32,8 +32,9 @@ import { LazyImgDirective } from './directives';
     AppComponent,
     TrendingComponent,
     GifListComponent,
+    GifDetailsComponent,
     SearchComponent,
-    HelloComponent,
+    HomeComponent,
     FavoriteComponent,
     LazyImgDirective
   ],
@@ -53,6 +54,7 @@ import { LazyImgDirective } from './directives';
     MatButtonModule,
     MatToolbarModule,
     MatButtonToggleModule,
+    MatDialogModule,
     LazyLoadImageModule,
     NgxSkeletonLoaderModule.forRoot()
   ],

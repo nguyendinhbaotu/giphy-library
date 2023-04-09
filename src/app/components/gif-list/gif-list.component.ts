@@ -1,15 +1,8 @@
 import { Component, HostListener, Input, OnChanges, AfterViewInit, SimpleChanges, NgZone } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Item, SearchResponse } from 'src/app/models';
 import { GiphyService } from 'src/app/services';
-
-/**
- * Returns chunks of size n.
- * @param {Array<any>} array any array
- * @param {number} n size of chunk 
- */
-function* chunks(array: any[], n: number) {
-  for (let i = 0; i < array.length; i += n) yield array.slice(i, i + n);
-}
+import { GifDetailsComponent } from '../gif-details/gif-details.component';
 
 @Component({
   selector: 'app-gif-list',
@@ -27,14 +20,9 @@ export class GifListComponent implements OnChanges, AfterViewInit {
 
   constructor(
     public zone: NgZone,
-    public giphyService: GiphyService
+    public giphyService: GiphyService,
+    public dialog: MatDialog
   ) {
-    // this.giphyService.search().subscribe((res: SearchResponse) => {
-    //   this.searchResponse = res;
-    //   const width = window.innerWidth - 300;
-    //   const noOfCol = width / 210 - 1;
-    //   this.split(res.data || [], noOfCol);
-    // })
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -57,12 +45,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
     const items = this.searchResponse.data?.sort((a: Item, b: Item) => {
       const diff = new Date(b.import_datetime).getTime() - new Date(a.import_datetime).getTime();
       return sort === 'desc' ? diff : diff * -1;
-      // if (new Date(a.import_datetime).getTime() > new Date(b.import_datetime).getTime()) {
-      //   return 1;
-      // }
-      // return -1;
     });
-    // this.items = items || [];
     return items ? items : [];
   }
 
@@ -106,11 +89,6 @@ export class GifListComponent implements OnChanges, AfterViewInit {
     }, 4000);
   }
 
-  split(items: Item[], noOfCol: number) {
-    const colSize = Math.floor(items.length / noOfCol);
-    this.columns = [...chunks(items, colSize)];
-  }
-
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.render();
@@ -129,7 +107,18 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   }
 
   changeSort() {
-    // this.sortItems();
     this.render();
+  }
+
+  openDetails(item: Item) {
+    this.dialog.open(GifDetailsComponent, {
+      height: '90%',
+      width: '90%',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+      data: {
+        item,
+      }
+    });
   }
 }
