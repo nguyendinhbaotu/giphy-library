@@ -1,49 +1,12 @@
 <mat-toolbar>
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-    </button> -->
     <img defer="" src="../assets/logo.png" style="width: 36px; height: 36px;" class="kl-navbar__logo">
     <span class="nav-title">Giphy</span>
-    <button class="nav-button" mat-raised-button color="warn" routerLink="/trending">Trending</button>
+    <button class="nav-button" mat-raised-button color="accent" routerLink="/trending">Trending</button>
     <button class="nav-button" mat-raised-button color="primary" routerLink="/search">Search</button>
-    <button class="nav-button" mat-raised-button color="accent" routerLink="/favorite">Favorite</button>    
-    <!-- <div class="search-bar">
-        <mat-form-field appearance="fill" class="search-input-field">
-            <input matInput placeholder="Search" class="inp">
-            <mat-icon matPrefix class="my-icon">search</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="search-filter-field">
-            <mat-label>Limit</mat-label>
-            <mat-select [(value)]="limit">
-                <mat-option value="25">25</mat-option>
-                <mat-option value="50">50</mat-option>
-                <mat-option value="75">75</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="search-filter-field">
-            <mat-label>Rating</mat-label>
-            <mat-select [(value)]="rating">
-                <mat-option value="g">g</mat-option>
-                <mat-option value="pg">pg</mat-option>
-                <mat-option value="pg-13">pg-13</mat-option>
-                <mat-option value="r">r</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div> -->
-    <!-- <button mat-icon-button class="example-icon favorite-icon" color="warn" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-        <span>Favorite GIFS</span>
-    </button> -->
+    <button class="nav-button" mat-raised-button color="warn" routerLink="/favorite">Favorite</button>    
+    
 </mat-toolbar>
 <div class="app">
-    <!-- <div class="left-nav">
-        <img defer="" src="../assets/logo.png" style="max-width: 100%; height: auto;" class="kl-navbar__logo">
-        <mat-list>
-            <mat-list-item><button mat-raised-button color="primary" class="">Primary</button></mat-list-item>
-            <mat-list-item><button mat-raised-button color="primary">Primary</button></mat-list-item>
-            <mat-list-item><button mat-raised-button color="primary">Primary</button></mat-list-item>
-        </mat-list>
-    </div> -->
     <div class="content">
         <router-outlet></router-outlet>
     </div>

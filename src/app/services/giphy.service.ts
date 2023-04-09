@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GiphyRepo } from '../repos';
+import { Item } from '../models';
 
 export const GIPHY_FAVORTIE_COLLECTION = 'giphy-favorite-collection';
 
@@ -20,21 +21,13 @@ export class GiphyService {
     return this.giphyRepo.trending(limit, rating);
   }
 
-  bookmark(image: any) {
+  toggleFavorite(item: Item) {
     const data = localStorage.getItem(GIPHY_FAVORTIE_COLLECTION);
     const collection = data ? JSON.parse(data) : {};
-    collection[image.id] = image;
-    localStorage.setItem(GIPHY_FAVORTIE_COLLECTION, JSON.stringify(collection));
-    return collection;
-  }
-
-  toggleBookmark(image: any) {
-    const data = localStorage.getItem(GIPHY_FAVORTIE_COLLECTION);
-    const collection = data ? JSON.parse(data) : {};
-    if (!!collection[image.id]) {
-      delete collection[image.id]
+    if (!!collection[item.id]) {
+      delete collection[item.id]
     } else {
-      collection[image.id] = image;
+      collection[item.id] = item;
     }
     localStorage.setItem(GIPHY_FAVORTIE_COLLECTION, JSON.stringify(collection));
     return collection;

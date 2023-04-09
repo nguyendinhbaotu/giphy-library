@@ -124,8 +124,8 @@ export class GifListComponent implements OnChanges, AfterViewInit {
     }
   }
 
-  toggleBookmark(image: any) {
-    this.collection = this.giphyService.toggleBookmark(image);
+  toggleFavorite(item: Item) {
+    this.collection = this.giphyService.toggleFavorite(item);
   }
 
   changeSort() {

@@ -8,7 +8,7 @@ import { GiphyService } from 'src/app/services';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  q = 'dogs';
+  q = '';
   limit = '25';
   offset = 0;
   rating = 'g';
@@ -17,10 +17,9 @@ export class SearchComponent {
   columns: any[] = [];
 
   constructor(public giphyService: GiphyService) {
-    this.search();
-    // this.giphyService.search(this.q, this.limit, this.offset, this.rating, this.lang).subscribe((res: SearchResponse) => {
-    //   this.searchResponse = res;
-    // })
+    this.giphyService.trending().subscribe((res: SearchResponse) => {
+      this.searchResponse = res;
+    })
   }
 
   search() {

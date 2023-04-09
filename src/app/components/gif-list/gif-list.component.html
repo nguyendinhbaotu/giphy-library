@@ -23,13 +23,13 @@
                                 <img defer="" [src]="item?.user?.avatar_url || '../assets/logo.png'" class="gif-user-icon">
                                 <span class="gif-user-name">{{ item?.user?.display_name || 'Giphy' }}</span>
                             </div>
-                            <div class="gif-title">
+                            <!-- <div class="gif-title">
                                 <span>{{ item?.title }}</span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="gif-actions">
                             <div class="gif-action">
-                                <button class="gif-action-icon" mat-icon-button color="basic">
+                                <button class="gif-action-icon" mat-icon-button [color]="!!collection[item.id] ? 'warn' : 'basic'" (click)="toggleFavorite(item)">
                                     <mat-icon>favorite</mat-icon>
                                 </button>
                                 <!-- <span class="gif-action-count">100</span> -->
@@ -43,25 +43,13 @@
                             </div>
                             
                             <div class="gif-action">
-                                <button class="gif-action" mat-icon-button [color]="!!collection[item.id] ? 'accent' : 'basic'" (click)="toggleBookmark(item)">
+                                <button class="gif-action" mat-icon-button color="basic" (click)="toggleFavorite(item)">
                                     <mat-icon>bookmark</mat-icon>
                                 </button>
                                 <!-- <span class="gif-action-count">100</span> -->
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="gif-user-2">
-                        <button mat-icon-button color="basic" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                          </button>
-                    </div> -->
-                    <!-- <div class="gif-user-2">
-                        <img [src]="item?.user?.avatar_url || '../assets/logo.png'" class="gif-user-icon">
-                        <span class="gif-user-name">{{ item?.user?.display_name || 'Giphy' }}</span>
-                        <button class="gif-favorite" mat-icon-button color="basic" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div> -->
                 </mat-card-content>
             </mat-card>
         </ng-template>
