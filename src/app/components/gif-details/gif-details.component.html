@@ -1,17 +1,15 @@
-<img class="gif-img" [defaultImage]="'../assets/logo.png'" [lazyLoad]="data.item.images.fixed_width_downsampled.url"/>
-<div class="gif-details">
-    <!-- <h1>Details</h1> -->
-    <!-- <img class="gif-img" [defaultImage]="'../assets/logo.png'" [lazyLoad]="data?.item?.images?.fixed_width_downsampled?.url || '../assets/logo.png'"/> -->
-    <div class="gif-user">
-        <img defer="" [src]="data.item.user?.avatar_url || '../assets/logo.png'" class="gif-user-icon">
-        <span class="gif-user-name">{{ data.item.user?.display_name || 'Giphy' }}</span>
-    </div>
-    <div class="gif-user">
-        Title:
-        <span class="gif-user-name">{{ data.item.title || 'Title' }}</span>
-    </div>
-    <div class="gif-user">
-        Rating:
-        <span class="gif-user-name">{{ data.item.rating || 'Rating' }}</span>
+<div class="gif-details-container" [class.landscape]="data.item.images.fixed_width_downsampled.width > data.item.images.fixed_width_downsampled.height">
+    <img class="gif-img" [defaultImage]="'../assets/logo.png'" [lazyLoad]="data.item.images.fixed_width_downsampled.url"/>
+    <div class="gif-details">
+        <!-- <h1>Details</h1> -->
+        <!-- <img class="gif-img" [defaultImage]="'../assets/logo.png'" [lazyLoad]="data?.item?.images?.fixed_width_downsampled?.url || '../assets/logo.png'"/> -->
+        <div class="gif-user">
+            <img defer="" [src]="data.item.user?.avatar_url || '../assets/logo.png'" class="gif-user-icon">
+            <span class="gif-user-name">{{ data.item.user?.display_name || 'Giphy' }}</span>
+        </div>
+        <h1 class="gif-title">{{ data.item.title || 'Title' }}</h1>
+        <div class="gif-user">
+            {{ data.item.import_datetime }}
+        </div>
     </div>
 </div>

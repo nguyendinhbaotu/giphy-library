@@ -28,8 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO
-- Redesign gif details popup
+- Add loading indictor when loading data
 - Title on each page 
-- Search Panel
-- Comment will popup details
-- Navigation Buttons 
+- Redesgin navigation buttons 
+- Paginator or infinity scroll loading

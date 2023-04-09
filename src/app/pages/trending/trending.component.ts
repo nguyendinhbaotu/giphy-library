@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchResponse } from 'src/app/models';
 import { GiphyService } from 'src/app/services';
 
@@ -7,11 +7,13 @@ import { GiphyService } from 'src/app/services';
   templateUrl: './trending.component.html',
   styleUrls: ['./trending.component.scss']
 })
-export class TrendingComponent {
+export class TrendingComponent implements OnInit {
   searchResponse: SearchResponse = {};
   columns: any[] = [];
 
-  constructor(public giphyService: GiphyService) {
+  constructor(public giphyService: GiphyService) { }
+
+  ngOnInit(): void {
     this.giphyService.trending().subscribe((res: SearchResponse) => {
       this.searchResponse = res;
     })

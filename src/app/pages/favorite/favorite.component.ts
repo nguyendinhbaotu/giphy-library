@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchResponse } from 'src/app/models';
 import { GiphyService } from 'src/app/services';
 
@@ -7,13 +7,14 @@ import { GiphyService } from 'src/app/services';
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.scss']
 })
-export class FavoriteComponent {
+export class FavoriteComponent implements OnInit {
   searchResponse: SearchResponse = {
     data: []
   };
-  columns: any[] = [];
+  
+  constructor(public giphyService: GiphyService) { }
 
-  constructor(public giphyService: GiphyService) {
+  ngOnInit(): void {
     this.searchResponse.data = [];
     const collection = this.giphyService.collection();
     Object.keys(collection).forEach((key) => {

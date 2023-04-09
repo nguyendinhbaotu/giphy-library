@@ -11,12 +11,13 @@ import { GifDetailsComponent } from '../gif-details/gif-details.component';
 })
 export class GifListComponent implements OnChanges, AfterViewInit {
   @Input() searchResponse: SearchResponse = {};
+  @Input() sort: string = 'desc';
+  @Input() rating: string = 'g';
   items: Item[] = [];
   columns: any[] = [];
   contentLoaded = false;
   viewInit = false;
   collection: any = {};
-  sort = 'desc';
 
   constructor(
     public zone: NgZone,
@@ -26,9 +27,8 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    const { searchResponse } = changes;
-    if (searchResponse) {
-      // this.sortItems();
+    const { sort, searchResponse } = changes;
+    if (sort || searchResponse) {
       if (this.viewInit) {
         this.render();
       }
@@ -60,7 +60,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
 
   estimateNumberOfColumns() {
     const width = window.innerWidth;
-    const noOfCol = Math.floor(width / 208) - 1; // min-width for each gif is 200px + gap 16px / 2
+    const noOfCol = Math.floor(width / 308) - 1; // min-width for each gif is 300px + gap 16px / 2
     return noOfCol;
   }
 
@@ -69,20 +69,13 @@ export class GifListComponent implements OnChanges, AfterViewInit {
     const totalHeight = this.estimateTotalHeight(items);
     const numberOfColumns = this.estimateNumberOfColumns();
 
-    debugger;
     let colIdx = 0;
     this.columns = [];
     items.forEach(item => {
       if (!this.columns[colIdx]) this.columns[colIdx] = [];
       this.columns[colIdx].push(item);
       colIdx = (colIdx + 1) % numberOfColumns;
-      debugger;
     })
-    // for (let colIdx = 0; colIdx < numberOfColumns; colIdx++) {
-
-    // }
-
-    // this.split(this.items, numberOfColumns);
 
     setTimeout(() => {
       this.zone.run(() => this.contentLoaded = true);
@@ -112,8 +105,8 @@ export class GifListComponent implements OnChanges, AfterViewInit {
 
   openDetails(item: Item) {
     this.dialog.open(GifDetailsComponent, {
-      height: '90%',
-      width: '90%',
+      width: '800px',
+      height: 'auto',
       enterAnimationDuration: '300ms',
       exitAnimationDuration: '300ms',
       data: {

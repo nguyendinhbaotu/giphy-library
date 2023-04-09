@@ -1,3 +1,22 @@
+.gif-details-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .gif-img {
+        border-radius: 10px 0px 0px 0px;
+    }
+
+    &.portrait {
+        flex-direction: row;
+    }
+
+    &.landscape {
+        flex-direction: column;
+        align-items: baseline;
+    }
+}
+
 .gif-img {
     width: 100%;
     height: auto;
@@ -7,6 +26,10 @@
 .gif-details {
     padding: 16px;
 
+    .gif-title {
+        margin-bottom: 8px;
+    }
+
     .gif-user {
         display: flex;
         flex-direction: row;
@@ -14,8 +37,8 @@
         margin-bottom: 8px;
 
         .gif-user-icon {
-            width: 36px;
-            height: 36px;
+            width: 48px;
+            height: 48px;
             background: white;
         }
     

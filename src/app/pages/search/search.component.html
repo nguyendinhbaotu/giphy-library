@@ -12,21 +12,27 @@
             <mat-option value="75">75</mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" class="search-filter-field">
-        <mat-label>Rating</mat-label>
-        <mat-select [(value)]="rating">
-            <mat-option value="g">g</mat-option>
-            <mat-option value="pg">pg</mat-option>
-            <mat-option value="pg-13">pg-13</mat-option>
-            <mat-option value="r">r</mat-option>
-        </mat-select>
-    </mat-form-field>
     <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="search()">
         <mat-icon>search</mat-icon>
     </button>
-    <!-- <mat-form-field appearance="fill" class="search-filter-field">
-        
-    </mat-form-field> -->
+</div>
+<div class="rating-and-sort">
+    <div class="rating">
+        <span>Rating:</span>
+        <mat-button-toggle-group name="rating" [(ngModel)]="rating" (change)="search()">
+            <mat-button-toggle value="g">G</mat-button-toggle>
+            <mat-button-toggle value="pg">PG</mat-button-toggle>
+            <mat-button-toggle value="pg-13">PG-13</mat-button-toggle>
+            <mat-button-toggle value="r">R</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="sort">
+        <span>Sort:</span>
+        <mat-button-toggle-group name="sort" [(ngModel)]="sort">
+            <mat-button-toggle value="desc">Newest</mat-button-toggle>
+            <mat-button-toggle value="asc">Oldest</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
 </div>
 
-<app-gif-list [searchResponse]="searchResponse"></app-gif-list>
+<app-gif-list [sort]="sort" [searchResponse]="searchResponse"></app-gif-list>
