@@ -60,7 +60,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
 
   estimateNumberOfColumns() {
     const width = window.innerWidth;
-    const noOfCol = Math.floor(width / 308) - 1; // min-width for each gif is 300px + gap 16px / 2
+    const noOfCol = Math.floor(width / 208) - 1; // min-width for each gif is 300px + gap 16px / 2
     return noOfCol;
   }
 
