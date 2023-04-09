@@ -113,9 +113,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    const width = event.target.innerWidth;
-    const noOfCol = width / 210 - 1;
-    this.split(this.searchResponse.data || [], noOfCol);
+    this.render();
   }
 
   theme(image: any) {
