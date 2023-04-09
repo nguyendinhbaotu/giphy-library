@@ -40,7 +40,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   ngOnChanges(changes: SimpleChanges): void {
     const { searchResponse } = changes;
     if (searchResponse) {
-      this.sortItems();
+      // this.sortItems();
       if (this.viewInit) {
         this.render();
       }
@@ -53,20 +53,53 @@ export class GifListComponent implements OnChanges, AfterViewInit {
     this.render();
   }
 
-  sortItems() {
+  sortItems(sort: string) {
     const items = this.searchResponse.data?.sort((a: Item, b: Item) => {
-      if (new Date(a.import_datetime).getTime() > new Date(b.import_datetime).getTime()) {
-        return 1;
-      }
-      return -1;
+      const diff = new Date(b.import_datetime).getTime() - new Date(a.import_datetime).getTime();
+      return sort === 'desc' ? diff : diff * -1;
+      // if (new Date(a.import_datetime).getTime() > new Date(b.import_datetime).getTime()) {
+      //   return 1;
+      // }
+      // return -1;
     });
-    this.items = items || [];
+    // this.items = items || [];
+    return items ? items : [];
+  }
+
+  estimateTotalHeight(items: Item[]) {
+    let totalHeight = 0;
+    items.forEach(item => {
+      totalHeight += +item.images.fixed_width_downsampled.height;
+    });
+
+    return totalHeight;
+  }
+
+  estimateNumberOfColumns() {
+    const width = window.innerWidth;
+    const noOfCol = Math.floor(width / 208) - 1; // min-width for each gif is 200px + gap 16px / 2
+    return noOfCol;
   }
 
   render() {
-    const width = window.innerWidth;
-    const noOfCol = width / 210 - 1;
-    this.split(this.items, noOfCol);
+    const items = this.sortItems(this.sort);
+    const totalHeight = this.estimateTotalHeight(items);
+    const numberOfColumns = this.estimateNumberOfColumns();
+
+    debugger;
+    let colIdx = 0;
+    this.columns = [];
+    items.forEach(item => {
+      if (!this.columns[colIdx]) this.columns[colIdx] = [];
+      this.columns[colIdx].push(item);
+      colIdx = (colIdx + 1) % numberOfColumns;
+      debugger;
+    })
+    // for (let colIdx = 0; colIdx < numberOfColumns; colIdx++) {
+
+    // }
+
+    // this.split(this.items, numberOfColumns);
 
     setTimeout(() => {
       this.zone.run(() => this.contentLoaded = true);
@@ -98,7 +131,7 @@ export class GifListComponent implements OnChanges, AfterViewInit {
   }
 
   changeSort() {
-    this.sortItems();
+    // this.sortItems();
     this.render();
   }
 }
